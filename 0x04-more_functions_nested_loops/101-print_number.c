@@ -13,7 +13,7 @@ void print_number(int n)
 
 	if (n < 0)
 	{
-		_putchar(95);
+		_putchar(45);
 		n = -n;
 	}
 	while (n / divisor >= 10)
