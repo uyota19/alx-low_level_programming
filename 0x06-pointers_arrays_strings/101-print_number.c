@@ -9,22 +9,22 @@
 void print_number(int n)
 {
 	int divisor = 1;
+	char digit;
 
 	if (n < 0)
 	{
 		_putchar('-');
-		n = (n * -1);
+		n *= -1;
 	}
-	while (n / divisor >= 10)
+	while (n / divisor > 9)
 	{
 		divisor *= 10;
 	}
-	while (divisor > 0)
+	while (divisor != 0)
 	{
-		int digit = n / divisor;
-
-		_putchar(digit + '0');
-		n -= digit * divisor;
+		digit = (n / divisor) + '0';
+		_putchar(digit);
+		n %= divisor;
 		divisor /= 10;
 	}
 }
