@@ -21,22 +21,21 @@ void print_buffer(char *b, int size)
 	for (i = 0; i < size; i += 10)
 	{
 		printf("%08x: ", i);
-		for (j = i; j < i + 10; j += 2)
+		for (j = i; j < i + 10; j++)
 		{
 			if (j < size)
-				printf("%02x", *(unsigned char *)(b + j));
+				printf("%02x", *(b + j));
 			else
 				printf("  ");
-			if (j + 1 < size)
-				printf("%02x ", *(unsigned char *)(b + j + 1));
-			else
-				printf("   ");
+			if (j % 2 != 0)
+				printf(" ");
 		}
-		printf(" ");
 		for (j = i; j < i + 10; j++)
 		{
 			if (j >= size)
-				printf(" ");
+			{
+				break;
+			}
 			else
 			if (*(b + j) >= ' ' && *(b + j) <= '~')
 				printf("%c", *(b + j));
